@@ -2,4 +2,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Taskego React
 
-A Simple todo app build using the React framework <br />  
+A Simple todo app built using the React framework <br />  
