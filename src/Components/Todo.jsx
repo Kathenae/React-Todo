@@ -4,6 +4,22 @@ class Todo extends Component{
 
   render(){
 
+    return (
+      <React.Fragment>
+      {this.renderSelf()}
+        {(this.props.data.todos.length > 0 && this.props.data.isExpanded) && 
+
+        <div className="ml-4 mb-3 pb-3 pl-3 ml-3" style={{borderBottom : "1px solid black", borderLeft : "1px solid black"}}>
+          {this.renderChildren()} 
+        </div>
+
+        }
+      </React.Fragment>
+    );
+  }
+
+  renderSelf(){
+
     let classes = "btn btn-block btn-"
     const doneClass = this.props.data.todos.length > 0? "outline-success" : "success";
     const inProgressClass = this.props.data.todos.length > 0 ? "outline-dark" : "outline-primary";
@@ -14,7 +30,6 @@ class Todo extends Component{
     text += this.props.isCompleted()? completeText : this.getProgressStatus();
 
     return (
-      <React.Fragment>
       <div className="m-2 form-inline input-group">
 
         <div className="input-group-append">
@@ -31,11 +46,7 @@ class Todo extends Component{
           < button className="btn btn-outline-danger" onClick={this.props.onDelete}>X</button>
         </div>
       </div>
-      <div className="ml-4">
-        {this.props.data.isExpanded && this.renderChildren()}
-      </div>
-      </React.Fragment>
-    );
+    )
   }
 
   renderChildren()
